@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.heading {
+  font-size: 20px;
+  background-color: #121212;
+  height: 40px;
+  color: #eeaaaa;
+}
+
+.subheading{
+  color: #121212;
+}
+
+.desc{
+  text: 40px;
+}
+
+.main{
+  height: 80vh;
+  width: 100vw;
+  background: #fafafa;
+}
+
+footer{
+  background-color: #121212;
+  height: 20px;
+  color: #eeeeee;
+}
