@@ -1,4 +1,5 @@
 const router = require('express').Router();
+
 const {getBossRating} = require ('../models/home.js');
 
 router.route('/home')

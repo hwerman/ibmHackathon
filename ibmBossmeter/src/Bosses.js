@@ -7,10 +7,9 @@ componentDidMount(){
 }
 
   render(){
-    console.log('props', this.props);
     return(
       <div>
-        {this.props.getBossRatings}
+        <h4>{this.props.getBossRatings}</h4>
       </div>
     )
   }

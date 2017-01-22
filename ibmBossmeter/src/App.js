@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import data from './data/bosses.json';
+import Bosses from './Bosses';
 
 class App extends Component {
   constructor(){
@@ -13,11 +13,26 @@ class App extends Component {
         disgust: ''
       },
       currentRatings: {
-        name: data.name,
-        rating: data.rating,
-        weeklyaverage: data.weeklyaverage
+        score: '',
+        name: '',
+        space: ''
     }
   }
+}
+
+getBossRatings(){
+  console.log('boss rating');
+  fetch(`http://bossmeter.herokuapp.com/api/space/person`)
+  .then(r => r.json())
+  .then((data) =>
+    this.setState({
+      currentRatings: {
+        score: data.score,
+        name: data.name,
+        space: data.space
+      }
+    })
+  )
 }
 
   render() {
@@ -36,10 +51,13 @@ class App extends Component {
               Here's how your employees are feeling about you today:
             </p>
               <article className="data">
-                {this.state.currentRatings.name}<br></br>
-                {this.state.currentRatings.rating}<br></br>
-                {this.state.currentRatings.weeklyaverage}<br></br>
+                BOSS NAME: {this.state.currentRatings.name}<br></br>
+                BOSS SCORE: {this.state.currentRatings.score}<br></br>
+                BOSS SPACE: {this.state.currentRatings.space}<br></br>
               </article>
+              <Bosses
+                getBossRatings={this.getBossRatings.bind(this)}
+              />
         </div>
 
         <footer>
